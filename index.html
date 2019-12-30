@@ -20,10 +20,29 @@
 <body>
     <div class="container">
         <h1>Bảng lương/Thuế thu nhập cá nhân</h1>
-        <div id="spreadsheet"></div>
-        <button id="button-a">Tải về máy</button>
-    </div>
+        <!-- Table  -->
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Họ và tên</th>
+                    <th>Lương</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
 
+        <div>
+            <label for="name">Họ và tên</label>
+            <input type="text" id="name" name="nameInput" placeholder="Trần Đặng Thị Bích Vân">
+        </div>
+        <div>
+            <label for="name">Lương</label>
+            <input type="text" id="salary" name="salaryInput" placeholder="100000">
+        </div>
+        <button type="submit" class="btn btn-success" id="save">Lưu</button>
+        <button class="btn btn-primary" id="button-a">Tải về máy</button>
+    </div>
     <!-- CDN links -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">

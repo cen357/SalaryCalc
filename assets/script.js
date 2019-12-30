@@ -1,14 +1,12 @@
 $(document).ready(function () {
-    var data = [
-        ['', 'Ford', 'Tesla', 'Toyota', 'Honda'],
-        ['2017', 10, 11, 12, 13],
-        ['2018', 20, 11, 14, 13],
-        ['2019', 30, 15, 12, 13]
+    var ws_data = [
+        ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'],
+        ['1', 'NGUYỄN THỊ BẢO HẰNG', '8005741990', '29,872,331', '5,100,000', '19,644,429', '2,563,951', '2,563,951', '535,500', '5', '0', '0'],
     ];
 
     var container = document.querySelector("#spreadsheet");
     const hot = new Handsontable(container, {
-        data: data,
+        data: ws_data,
         rowHeaders: true,
         colHeaders: true,
         filters: true,
@@ -21,15 +19,11 @@ $(document).ready(function () {
     wb.Props = {
         Title: "SheetJS Tutorial",
         Subject: "Test",
-        Author: "Red Stapler",
-        CreatedDate: new Date(2017, 12, 19)
+        Author: "Anthony Pham",
+        CreatedDate: new Date(2019, 12, 29)
     };
 
     wb.SheetNames.push("Test Sheet");
-
-    var ws_data = [
-        ['hello', 'world']
-    ];
 
     var ws = XLSX.utils.aoa_to_sheet(ws_data);
 
@@ -50,6 +44,6 @@ $(document).ready(function () {
     $("#button-a").click(function () {
         saveAs(new Blob([s2ab(wbout)], {
             type: "application/octet-stream"
-        }), 'test.xlsx');
+        }), 'test.xls');
     });
 });

@@ -1,24 +1,71 @@
 $(document).ready(function () {
+    // Initialize data table
     var ws_data = [
-        ['Họ và tên', 'Lương']
+        ['STT', 'Họ và tên', 'Lương']
     ];
 
+    var table = $("table").DataTable();
+    var index = 1;
+    console.log(table);
+
     // Add new person salary profile
-    $("#save").click(function () {
+    $("#add").click(function () {
         // Reset person profile
         let person = [];
         // Update person profile
-        person.push($("#name").val());
-        person.push($("#salary").val());
+        person.push(index);
+        person.push($("#addModal #name").val());
+        person.push($("#addModal #salary").val());
         // Add new person profile to existing data table
         ws_data.push(person);
-
         // Display data in data table
-        let display = "<tr><td>" + $("#name").val() + "</td><td>" + $("#salary").val() + "</td></tr>";
-        $("tbody").after(display);
+        table.row.add([
+            index + '',
+            $("#addModal #name").val(),
+            $("#addModal #salary").val()
+        ]).draw(false);
+        index++;
     });
 
-    // Save as xls file 
+    // Select or deselect row
+    $('table tbody').on('click', 'tr', function () {
+        if ($(this).hasClass('selected')) {
+            $(this).removeClass('selected');
+        } else {
+            table.$('tr.selected').removeClass('selected');
+            $(this).addClass('selected');
+        }
+    });
+
+    // Edit row
+    $('#edit').click(function () {
+        var selectIndex = $('.selected').text();
+        var removeIndex = Number(selectIndex[0]);
+
+        let person = [];
+        person.push(removeIndex);
+        person.push($("#editModal #name").val());
+        person.push($("#editModal #salary").val());
+        ws_data.splice(removeIndex, 1, person);
+
+        table.row('.selected').remove().draw(false);
+        table.row.add([
+            removeIndex + '',
+            $("#editModal #name").val(),
+            $("#editModal #salary").val()
+        ]).draw(false);
+        removeIndex++;
+    });
+
+    // Remove row
+    $('#remove').click(function () {
+        var selectIndex = $('.selected').text();
+        var removeIndex = Number(selectIndex[0]);
+        ws_data.splice(removeIndex, 1);
+        table.row('.selected').remove().draw(false);
+    });
+
+    // Save as xls file     
     $("#button-a").click(function () {
         var wb = XLSX.utils.book_new();
         wb.Props = {

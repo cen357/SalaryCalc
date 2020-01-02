@@ -1,33 +1,33 @@
 $(document).ready(function () {
-    // Initialize salary profile
+    // Initialize data for application
+    app_data = [];
+    // Initialize salary profile data for worksheet
     var ws_data = [
         ['STT', 'Họ và tên', 'Lương']
     ];
 
-    // Initialize data table
+    // Initialize profile counter
+    var counter = 0;
+
+    // Initialize datatable
     var table = $("table").DataTable({
         "columnDefs": [{
             "searchable": true,
-            "orderable": true,
+            "orderable": false,
             "targets": 0
         }],
-        "order": [
-            [1, 'asc']
-        ],
-        rowReorder: true
+        "order": [],
+        rowReorder: false
     });
     addIndexColumn(table);
 
-    // Initialize profile counter
-    var counter = 1;
-
-    // Select or deselect profile
+    // Select or deselect profile by clicking on a row
     $('table tbody').on('click', 'tr', function () {
         if (isSelected($(this))) {
-            $(this).removeClass('selected'); // Deselect current row
+            $(this).removeClass('selected');
         } else {
-            table.$('tr.selected').removeClass('selected'); // Deselect selected row in the data table
-            $(this).addClass('selected'); // Select current row
+            table.$('tr.selected').removeClass('selected');
+            $(this).addClass('selected');
         }
     });
 
@@ -35,18 +35,14 @@ $(document).ready(function () {
     $("#add").click(function () {
         // Initialize new profile
         let profile = [];
-
-        // Update new person profile
-        addData(profile, counter);
-
-        // Add new profile to the data table
-        ws_data.push(profile);
-
-        // Display new profile data in data table
-        addTable(table, counter);
-
-        // Increase counter for the next profile
+        // Increase counter for new profile
         counter++;
+        // Update new person profile for worksheet
+        addData(profile, counter);
+        // Add new profile to the datatable
+        ws_data.push(profile);
+        // Display new profile data in datatable
+        addTable(table, counter);
     });
 
     // Edit selected profile
@@ -54,32 +50,26 @@ $(document).ready(function () {
         let num = getSelectedIndex();
         // Initialize selected profile
         let profile = [];
-
-        // Edit selected profile
+        // Edit selected profile for worksheet
         editData(profile);
         ws_data.splice(num, 1, profile);
-
-        // Add edited profile into data table
+        // Show edited profile in data table
         editTable(table, num, profile);
     });
 
     // Remove selected profile
     $('#remove').click(function () {
-        // Remove selected profile 
+        // Remove selected profile from worksheet
         let num = getSelectedIndex();
         ws_data.splice(num, 1);
-
-        // Decrease indexes of profiles below the selected profile
+        // Decrease indexes of profiles below the selected profile in worksheet
         for (let index = num; index < ws_data.length; index++) {
             ws_data[index][0] = ws_data[index][0] - 1;
         }
-
         // Decrease profile counter
         counter--;
-
         // Remove selected profile from data table
         table.row('.selected').remove().draw(false);
-
     });
 
     // Summary
@@ -89,17 +79,17 @@ $(document).ready(function () {
     $("#button-a").click(function () {
         var wb = XLSX.utils.book_new();
         wb.Props = {
-            Title: "SheetJS Tutorial",
-            Subject: "Test",
-            Author: "Red Stapler",
+            Title: "SheetJS Worksheet",
+            Subject: "SalaryCalc",
+            Author: "Anthony Pham",
             CreatedDate: new Date(2017, 12, 19)
         };
 
-        wb.SheetNames.push("Test Sheet");
+        wb.SheetNames.push("Salary Sheet");
 
         var ws = XLSX.utils.aoa_to_sheet(ws_data);
 
-        wb.Sheets["Test Sheet"] = ws;
+        wb.Sheets["Salary Sheet"] = ws;
 
         var wbout = XLSX.write(wb, {
             bookType: 'xlsx',

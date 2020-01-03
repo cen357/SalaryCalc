@@ -44,6 +44,9 @@ $(document).ready(function () {
         ws_data.push(profile);
         // Display new profile data in datatable
         addTable(table, counter);
+        // Empty input and close modal
+        emptyInput();
+        $("#addModal").modal('hide');
     });
 
     // Edit selected profile
@@ -56,6 +59,9 @@ $(document).ready(function () {
         ws_data.splice(num, 1, profile);
         // Show edited profile in data table
         editTable(table, num, profile);
+        // Empty input and close modal
+        emptyInput();
+        $("#editModal").modal('hide');
     });
 
     // Remove selected profile

@@ -45,44 +45,84 @@
     <!---------------------------------------------- End of CDN links -------------------------------------------------->
 
     <!-- CSS links -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="src/styles/style.css">
 
 </head>
 
 <body>
     <div class="app">
-        <div class="container">
-            <!------------------------------------------------ Content ----------------------------------------------------->
-            <div>
-                <!-- Button group -->
-                <div id="button_group" class="d-flex justify-content-between align-items-center">
-                    <!-- Summary button -->
-                    <button class="btn btn-primary btn-lg p-2" type="button" data-toggle="collapse"
-                        data-target="#summary" aria-expanded="false" aria-controls="summary">
-                        Summary
-                    </button>
+        <!------------------------------------------------ Header ------------------------------------------------------>
+        <!-- Navigation bar -->
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <a class="navbar-brand" href="#">BizApp Project</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-                    <!-- Month title -->
-                    <div id="month" class="text-center p-2">
-                        <h1>Salary Calculator</h1>
-                    </div>
-
-                    <!-- Ultilities button -->
-                    <div class="dropdown">
-                        <button class="btn btn-secondary btn-lg dropdown-toggle p-2" type="button"
-                            id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Ultilities
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <!-- Add function -->
-                            <a class="dropdown-item" data-toggle="modal" data-target="#addModal" href="#">Add</a>
-                            <!-- Edit function -->
-                            <a class="dropdown-item" data-toggle="modal" data-target="#editModal" href="#">Edit</a>
-                            <!-- Remove function -->
-                            <a class="dropdown-item" id="remove" href="#">Remove</a>
-                            <!-- Download function -->
-                            <a class="dropdown-item" id="button-a" href="#">Download</a>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Apps
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">App 1</a>
+                            <a class="dropdown-item" href="#">App 2</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">App 3</a>
                         </div>
+                    </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            </div>
+        </nav>
+        <!--------------------------------------------- End of header -------------------------------------------------->
+
+        <!------------------------------------------------ Content ----------------------------------------------------->
+        <div class="container">
+            <!-- Button group -->
+            <div id="button_group" class="d-flex justify-content-between align-items-center">
+                <!-- Summary button -->
+                <button class="btn btn-primary btn-lg p-2" type="button" data-toggle="collapse" data-target="#summary"
+                    aria-expanded="false" aria-controls="summary">
+                    Summary
+                </button>
+
+                <!-- Month title -->
+                <div id="month" class="text-center p-2">
+                    <h1>Salary Calculator</h1>
+                </div>
+
+                <!-- Ultilities button -->
+                <div class="dropdown">
+                    <button class="btn btn-secondary btn-lg dropdown-toggle p-2 text-white" type="button"
+                        id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Ultilities
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <!-- Add function -->
+                        <a class="dropdown-item text-primary font-weight-bold" data-toggle="modal"
+                            data-target="#addModal" href="#">Add</a>
+                        <!-- Edit function -->
+                        <a class="dropdown-item text-dark font-weight-bold" data-toggle="modal" data-target="#editModal"
+                            href="#">Edit</a>
+                        <!-- Remove function -->
+                        <a class="dropdown-item text-danger font-weight-bold" id="remove" href="#">Remove</a>
+                        <!-- Download function -->
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item text-success font-weight-bold" id="button-a" href="#">Download</a>
                     </div>
                 </div>
             </div>
@@ -108,79 +148,38 @@
             <tbody>
             </tbody>
         </table>
-        <!------------------------------------------- End of content --------------------------------------------------->
+    </div>
+    <!------------------------------------------- End of content --------------------------------------------------->
 
-        <!--------------------------------------------- Modals ------------------------------------------------------>
+    <!--------------------------------------------- Modals ------------------------------------------------------>
 
-        <!-- Add Modal -->
-        <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content shadow rounded">
+    <!-- Add Modal -->
+    <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content shadow rounded">
 
-                    <!-- Modal header -->
-                    <div class="modal-header text-center bg-primary text-white">
-                        <h4 class="modal-title w-100 font-weight-bold">ADD NEW PROFILE</h4>
-                        <button class="close" data-dismiss="modal" type="button">&times;</button>
-                    </div>
-
-                    <!-- Modal body -->
-                    <div id="test">
-                        <div class="modal-body mx-3">
-                            <!-- Name input -->
-                            <div class="md-form">
-                                <i class="fas fa-pen prefix" style="color: grey"></i>
-                                <label class="text-secondary font-weight-bold ml-1" for="name">Full name</label>
-                                <input class="form-control" id="name" name="nameInput" type="text"
-                                    placeholder="Anthony">
-                            </div>
-
-                            <!-- Salary input -->
-                            <div class="md-form">
-                                <i class="fas fa-dollar-sign prefix" style="color: grey"></i>
-                                <label class="text-secondary font-weight-bold ml-1" for="salary">Salary</label>
-                                <input class="form-control" id="salary" name="salaryInput" type="text"
-                                    placeholder="9999999" required>
-                            </div>
-                        </div>
-
-                        <!-- Modal footer -->
-                        <div class="modal-footer d-flex justify-content-end py-2">
-                            <button class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                            <button class="btn btn-primary" id="add">Add</button>
-                        </div>
-                    </div>
+                <!-- Modal header -->
+                <div class="modal-header text-center bg-primary text-white">
+                    <h4 class="modal-title w-100 font-weight-bold">ADD NEW PROFILE</h4>
+                    <button class="close" data-dismiss="modal" type="button">&times;</button>
                 </div>
-            </div>
-        </div>
 
-        <!-- Edit Modal -->
-        <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content shadow rounded">
-
-                    <!-- Modal header -->
-                    <div class="modal-header text-center bg-primary text-white">
-                        <h4 class="modal-title w-100 font-weight-bold">EDIT PROFILE</h4>
-                        <button class="close" data-dismiss="modal" type="button">&times;</button>
-                    </div>
-
-                    <!-- Modal body -->
+                <!-- Modal body -->
+                <div id="test">
                     <div class="modal-body mx-3">
                         <!-- Name input -->
                         <div class="md-form">
                             <i class="fas fa-pen prefix" style="color: grey"></i>
                             <label class="text-secondary font-weight-bold ml-1" for="name">Full name</label>
-                            <input class="form-control" id="name" name="nameInput" type="text" placeholder="Anthony"
-                                required>
+                            <input class="form-control" id="name" name="nameInput" type="text" placeholder="Anthony">
                         </div>
 
                         <!-- Salary input -->
                         <div class="md-form">
                             <i class="fas fa-dollar-sign prefix" style="color: grey"></i>
                             <label class="text-secondary font-weight-bold ml-1" for="salary">Salary</label>
-                            <input class="form-control" id="salary" name="salaryInput" type="text" placeholder="999999"
+                            <input class="form-control" id="salary" name="salaryInput" type="text" placeholder="9999999"
                                 required>
                         </div>
                     </div>
@@ -188,12 +187,53 @@
                     <!-- Modal footer -->
                     <div class="modal-footer d-flex justify-content-end py-2">
                         <button class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                        <button class="btn btn-primary" id="edit">Edit</button>
+                        <button class="btn btn-primary" id="add">Add</button>
                     </div>
                 </div>
             </div>
         </div>
-        <!----------------------------------------------- End of Modals ------------------------------------->
+    </div>
+
+    <!-- Edit Modal -->
+    <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content shadow rounded">
+
+                <!-- Modal header -->
+                <div class="modal-header text-center bg-primary text-white">
+                    <h4 class="modal-title w-100 font-weight-bold">EDIT PROFILE</h4>
+                    <button class="close" data-dismiss="modal" type="button">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body mx-3">
+                    <!-- Name input -->
+                    <div class="md-form">
+                        <i class="fas fa-pen prefix" style="color: grey"></i>
+                        <label class="text-secondary font-weight-bold ml-1" for="name">Full name</label>
+                        <input class="form-control" id="name" name="nameInput" type="text" placeholder="Anthony"
+                            required>
+                    </div>
+
+                    <!-- Salary input -->
+                    <div class="md-form">
+                        <i class="fas fa-dollar-sign prefix" style="color: grey"></i>
+                        <label class="text-secondary font-weight-bold ml-1" for="salary">Salary</label>
+                        <input class="form-control" id="salary" name="salaryInput" type="text" placeholder="999999"
+                            required>
+                    </div>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer d-flex justify-content-end py-2">
+                    <button class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button class="btn btn-primary" id="edit">Edit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!----------------------------------------------- End of Modals ------------------------------------->
     </div>
 
     <!-- javaScript links -->

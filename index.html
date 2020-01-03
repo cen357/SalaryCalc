@@ -63,7 +63,7 @@
                     </button>
 
                     <!-- Month title -->
-                    <div class="month text-center p-2">
+                    <div id="month" class="text-center p-2">
                         <h1>Salary Calculator</h1>
                     </div>
 
@@ -75,11 +75,9 @@
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                             <!-- Add function -->
-                            <a class="dropdown-item" id="add" data-toggle="modal" data-target="#addModal"
-                                href="#">Add</a>
+                            <a class="dropdown-item" data-toggle="modal" data-target="#addModal" href="#">Add</a>
                             <!-- Edit function -->
-                            <a class="dropdown-item" id="edit" data-toggle="modal" data-target="#editModal"
-                                href="#">Edit</a>
+                            <a class="dropdown-item" data-toggle="modal" data-target="#editModal" href="#">Edit</a>
                             <!-- Remove function -->
                             <a class="dropdown-item" id="remove" href="#">Remove</a>
                             <!-- Download function -->
@@ -130,7 +128,7 @@
                     <div class="modal-body mx-3">
                         <!-- Name input -->
                         <div class="md-form">
-                            <i class="fas fa-pen prefix" style="color: grey"></i>
+                            <i class="fas fa-dollar-sign prefix" style="color: grey"></i>
                             <label class="text-secondary font-weight-bold ml-1" for="name">Full name</label>
                             <input class="form-control" id="name" name="nameInput" type="text"
                                 placeholder="Trần Đặng Thị Bích Vân">
@@ -178,7 +176,7 @@
 
                         <!-- Salary input -->
                         <div class="md-form">
-                            <i class="fas fa-pen prefix" style="color: grey"></i>
+                            <i class="fas fa-dollar-sign prefix" style="color: grey"></i>
                             <label class="text-secondary font-weight-bold ml-1" for="salary">Salary</label>
                             <input class="form-control" id="salary" name="salaryInput" type="text"
                                 placeholder="10000000">

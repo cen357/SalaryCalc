@@ -88,7 +88,9 @@ $(document).ready(function () {
 
         wb.SheetNames.push("Salary Sheet");
 
+        sumCalc(ws_data);
         var ws = XLSX.utils.aoa_to_sheet(ws_data);
+        ws_data.pop();
 
         wb.Sheets["Salary Sheet"] = ws;
 

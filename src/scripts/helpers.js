@@ -17,6 +17,23 @@ function addIndexColumn(t) {
  *  Parameters: 
  *  Returns: 
  */
+function sumCalc(data) {
+    let sumRow = [];
+    let sumSalary = 0;
+    for (let index = 1; index < data.length; index++) {
+        const element = data[index];
+        sumSalary = sumSalary + Number(element[2]);
+    }
+    sumRow.push('');
+    sumRow.push('Sum');
+    sumRow.push(String(sumSalary));
+    data.push(sumRow);
+}
+
+/** Function description
+ *  Parameters: 
+ *  Returns: 
+ */
 function isSelected(row) {
     return (row.hasClass('selected')) ? true : false;
 }

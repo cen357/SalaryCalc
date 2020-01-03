@@ -1,9 +1,10 @@
 $(document).ready(function () {
     // Initialize data for application
     app_data = [];
+    sum_data = [];
     // Initialize salary profile data for worksheet
     var ws_data = [
-        ['STT', 'Họ và tên', 'Lương']
+        ['Index', 'Full name', 'Salary']
     ];
 
     // Initialize profile counter

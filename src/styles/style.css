@@ -1,3 +1,9 @@
 #button_group {
-    margin: 30px 100%;
+    margin: 10px auto;
+}
+
+h1 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: xx-large;
+    font-weight: bold;
 }

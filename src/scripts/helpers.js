@@ -93,3 +93,12 @@ function editTable(dataTable, selectedRow, person) {
         col++;
     }
 }
+
+/** Function description
+ *  Parameters: 
+ *  Returns: 
+ */
+function emptyInput() {
+    $("#name").val('');
+    $("#salary").val('');
+}

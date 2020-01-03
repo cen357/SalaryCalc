@@ -9,8 +9,8 @@
 
     <!------------------------------------------------------ CDN links --------------------------------------------->
     <!-- Font awsome link -->
-    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
-        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"
+        integrity="sha256-46qynGAkLSFpVbEBog43gvNhfrOj+BmwXdxFgVK/Kvc=" crossorigin="anonymous" />
 
     <!-- Bootstrap Jquery CDN links -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
@@ -118,35 +118,37 @@
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content shadow rounded">
 
-                    <!-- Header name -->
+                    <!-- Modal header -->
                     <div class="modal-header text-center bg-primary text-white">
                         <h4 class="modal-title w-100 font-weight-bold">ADD NEW PROFILE</h4>
                         <button class="close" data-dismiss="modal" type="button">&times;</button>
                     </div>
 
-                    <!-- Body name -->
-                    <div class="modal-body mx-3">
-                        <!-- Name input -->
-                        <div class="md-form">
-                            <i class="fas fa-dollar-sign prefix" style="color: grey"></i>
-                            <label class="text-secondary font-weight-bold ml-1" for="name">Full name</label>
-                            <input class="form-control" id="name" name="nameInput" type="text"
-                                placeholder="Trần Đặng Thị Bích Vân">
+                    <!-- Modal body -->
+                    <div id="test">
+                        <div class="modal-body mx-3">
+                            <!-- Name input -->
+                            <div class="md-form">
+                                <i class="fas fa-pen prefix" style="color: grey"></i>
+                                <label class="text-secondary font-weight-bold ml-1" for="name">Full name</label>
+                                <input class="form-control" id="name" name="nameInput" type="text"
+                                    placeholder="Anthony">
+                            </div>
+
+                            <!-- Salary input -->
+                            <div class="md-form">
+                                <i class="fas fa-dollar-sign prefix" style="color: grey"></i>
+                                <label class="text-secondary font-weight-bold ml-1" for="salary">Salary</label>
+                                <input class="form-control" id="salary" name="salaryInput" type="text"
+                                    placeholder="9999999" required>
+                            </div>
                         </div>
 
-                        <!-- Salary input -->
-                        <div class="md-form">
-                            <i class="fas fa-pen prefix" style="color: grey"></i>
-                            <label class="text-secondary font-weight-bold ml-1" for="salary">Salary</label>
-                            <input class="form-control" id="salary" name="salaryInput" type="text"
-                                placeholder="10000000">
+                        <!-- Modal footer -->
+                        <div class="modal-footer d-flex justify-content-end py-2">
+                            <button class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                            <button class="btn btn-primary" id="add">Add</button>
                         </div>
-                    </div>
-
-                    <!-- Button group -->
-                    <div class="modal-footer d-flex justify-content-end py-2">
-                        <button class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                        <button class="btn btn-primary" id="add">Add</button>
                     </div>
                 </div>
             </div>
@@ -158,32 +160,32 @@
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content shadow rounded">
 
-                    <!-- Header name -->
+                    <!-- Modal header -->
                     <div class="modal-header text-center bg-primary text-white">
                         <h4 class="modal-title w-100 font-weight-bold">EDIT PROFILE</h4>
                         <button class="close" data-dismiss="modal" type="button">&times;</button>
                     </div>
 
-                    <!-- Body name -->
+                    <!-- Modal body -->
                     <div class="modal-body mx-3">
                         <!-- Name input -->
                         <div class="md-form">
                             <i class="fas fa-pen prefix" style="color: grey"></i>
                             <label class="text-secondary font-weight-bold ml-1" for="name">Full name</label>
-                            <input class="form-control" id="name" name="nameInput" type="text"
-                                placeholder="Trần Đặng Thị Bích Vân">
+                            <input class="form-control" id="name" name="nameInput" type="text" placeholder="Anthony"
+                                required>
                         </div>
 
                         <!-- Salary input -->
                         <div class="md-form">
                             <i class="fas fa-dollar-sign prefix" style="color: grey"></i>
                             <label class="text-secondary font-weight-bold ml-1" for="salary">Salary</label>
-                            <input class="form-control" id="salary" name="salaryInput" type="text"
-                                placeholder="10000000">
+                            <input class="form-control" id="salary" name="salaryInput" type="text" placeholder="999999"
+                                required>
                         </div>
                     </div>
 
-                    <!-- Button group -->
+                    <!-- Modal footer -->
                     <div class="modal-footer d-flex justify-content-end py-2">
                         <button class="btn btn-secondary" data-dismiss="modal">Cancel</button>
                         <button class="btn btn-primary" id="edit">Edit</button>

@@ -1,9 +1,10 @@
 $(document).ready(function () {
     // Initialize data for application
     app_data = [];
+    sum_data = [];
     // Initialize salary profile data for worksheet
     var ws_data = [
-        ['STT', 'Họ và tên', 'Lương']
+        ['Index', 'Full name', 'Salary']
     ];
 
     // Initialize profile counter
@@ -87,7 +88,9 @@ $(document).ready(function () {
 
         wb.SheetNames.push("Salary Sheet");
 
+        sumCalc(ws_data);
         var ws = XLSX.utils.aoa_to_sheet(ws_data);
+        ws_data.pop();
 
         wb.Sheets["Salary Sheet"] = ws;
 

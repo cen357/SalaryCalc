@@ -84,7 +84,7 @@ $(document).ready(function () {
 
     // Download as xls file
     $("#button-a").click(function () {
-        var wb = XLSX.utils.book_new();
+        var wb = XLS.utils.book_new();
         wb.Props = {
             Title: "SheetJS Worksheet",
             Subject: "SalaryCalc",
@@ -95,12 +95,12 @@ $(document).ready(function () {
         wb.SheetNames.push("Salary Sheet");
 
         sumCalc(ws_data);
-        var ws = XLSX.utils.aoa_to_sheet(ws_data);
+        var ws = XLS.utils.aoa_to_sheet(ws_data);
         ws_data.pop();
 
         wb.Sheets["Salary Sheet"] = ws;
 
-        var wbout = XLSX.write(wb, {
+        var wbout = XLS.write(wb, {
             bookType: 'xlsx',
             type: 'binary'
         });
@@ -114,6 +114,6 @@ $(document).ready(function () {
         }
         saveAs(new Blob([s2ab(wbout)], {
             type: "application/octet-stream"
-        }), 'test.xlsx');
+        }), 'SalaryCalc.xls');
     });
 });
